@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="pure-g-r">
+
+	<h1>{{ firstgenre }} + {{ secondgenre }}</h1>
+	
+	<div class="pure-u-1-1">
+		
+		{% for x in movie %}
+
+		<div class="movie">
+			<h1>{{x.title}}</h1><br>
+			<img src="http://image.tmdb.org/t/p/w185/{{ x.poster_path }}">
+
+			<div class="mov_dets">
+				<a href="http://www.imdb.com/title/{{ x.imdb_id }}/">IMDb Page</a>
+				|
+				Vote Average : <b>{{ x.vote_average }}</b>
+				|
+				Runtime : <b>{{ x.runtime }} minutes</b>
+			</div>
+
+			<h2>{{ x.overview }}</h2><br><br>
+		</div>
+
+		{% endfor %}
+
+	</div>
+
+</div>
+
+{% endblock %}
